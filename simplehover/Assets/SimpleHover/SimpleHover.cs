@@ -38,17 +38,23 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent( typeof( Rigidbody))]
 public class SimpleHover : MonoBehaviour
 {
 	public float MinDistance = 2.0f;
 	public float MaxDistance = 4.0f;
 	public float MaxForce = 25.0f;
 
+	Rigidbody rb;
+
+	void Start()
+	{
+		rb = GetComponentInParent<Rigidbody>();
+	}
+
 	float RaycastDownwardsFromMe()
 	{
 		RaycastHit rch;
-		if (Physics.Raycast ( transform.position, Vector3.down, out rch, MaxDistance))
+		if (Physics.Raycast ( transform.position, -transform.up, out rch, MaxDistance))
 		{
 			return rch.distance;
 		}
@@ -62,6 +68,7 @@ public class SimpleHover : MonoBehaviour
 		if (fractionalPosition < 0) fractionalPosition = 0;
 		if (fractionalPosition > 1) fractionalPosition = 1;
 		float force = fractionalPosition * MaxForce;
-		gameObject.GetComponent<Rigidbody>().AddForce( Vector3.up * force);	
+
+		rb.AddForceAtPosition(Vector3.up * force, transform.position);
 	}
 }
