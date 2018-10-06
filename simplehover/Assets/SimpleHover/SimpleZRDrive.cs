@@ -41,8 +41,14 @@ using System.Collections;
 [RequireComponent( typeof( Rigidbody))]
 public class SimpleZRDrive : MonoBehaviour
 {
-	public float Power = 25.0f;
-	public float Twist = 20.0f;
+	public float Power;
+	public float Twist;
+
+	void Reset()
+	{
+		Power = 25.0f;
+		Twist = 10.0f;
+	}
 
 	Rigidbody rb;
 
