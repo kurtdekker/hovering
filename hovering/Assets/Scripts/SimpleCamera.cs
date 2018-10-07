@@ -1,9 +1,7 @@
 ﻿/*
     The following license supersedes all notices in the source code.
-*/
 
-/*
-    Copyright (c) 2016 Kurt Dekker/PLBM Games All rights reserved.
+	Copyright (c) 2018 Kurt Dekker/PLBM Games All rights reserved.
 
     http://www.twitter.com/kurtdekker
     
@@ -35,47 +33,64 @@
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-[RequireComponent( typeof( Rigidbody))]
-public class SimpleZRDrive : MonoBehaviour
+public class SimpleCamera : MonoBehaviour
 {
-	public float Power;
-	public float Twist;
+	public	Transform	target;
+
+	public	float		Snappiness;
+
+	public	bool		StayBehind;
 
 	void Reset()
 	{
-		Power = 25.0f;
-		Twist = 10.0f;
+		Snappiness = 3.0f;
 	}
 
-	Rigidbody rb;
+	Vector3 offset;
 
-	void Start()
+	Vector3 DesiredPosition;
+
+	void Start ()
 	{
-		rb = GetComponent<Rigidbody>();
+		offset = transform.position - target.position;
 	}
 
 	void FixedUpdate ()
 	{
-		// turn first
-		float Rdrive = Input.GetAxis("Horizontal");
+		Vector3 UsableOffset = offset;
 
-		if (Mathf.Abs( Rdrive) > 0.1f)
+		if (StayBehind)
 		{
-			rb.AddTorque( transform.up * Rdrive * Twist);
-		}
-		else
-		{
-			// damp out rotation
-			rb.AddTorque( -rb.angularVelocity * Twist);
+			float YRotation = target.rotation.eulerAngles.y;
+
+			UsableOffset = Quaternion.Euler( 0, YRotation, 0) * UsableOffset;
 		}
 
-		// then drive
-		Vector3 Zdrive = transform.forward * Input.GetAxis( "Vertical") * Power;
+		DesiredPosition = target.position + UsableOffset;
 
-		rb.AddForce(Zdrive);
+		transform.position = Vector3.Lerp(
+			transform.position, DesiredPosition, Snappiness * Time.deltaTime);
 
+		transform.LookAt( target);
+	}
+
+	void OnGUI()
+	{
+		float sz = Mathf.Min( Screen.width, Screen.height) * 0.15f;
+
+		float aspect = 1.5f;
+
+		Rect r = new Rect( Screen.width - sz * aspect, 0, sz * aspect, sz);
+
+		GUI.color = StayBehind ? Color.green : Color.white;
+
+		if (GUI.Button( r, "CAMERA\nBEHIND"))
+		{
+			StayBehind = !StayBehind;
+		}
 	}
 }

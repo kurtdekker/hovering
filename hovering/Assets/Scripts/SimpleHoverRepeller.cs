@@ -3,7 +3,7 @@
 */
 
 /*
-    Copyright (c) 2016 Kurt Dekker/PLBM Games All rights reserved.
+    Copyright (c) 2018 Kurt Dekker/PLBM Games All rights reserved.
 
     http://www.twitter.com/kurtdekker
     
@@ -38,15 +38,37 @@
 using UnityEngine;
 using System.Collections;
 
-public class SimpleHoverScene : MonoBehaviour {
+public class SimpleHoverRepeller : MonoBehaviour
+{
+	public float MinDistance = 2.0f;
+	public float MaxDistance = 4.0f;
+	public float MaxForce = 25.0f;
 
-	// Use this for initialization
-	void Start () {
-	
+	Rigidbody rb;
+
+	void Start()
+	{
+		rb = GetComponentInParent<Rigidbody>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	float RaycastDownwardsFromMe()
+	{
+		RaycastHit rch;
+		if (Physics.Raycast ( transform.position, -transform.up, out rch, MaxDistance))
+		{
+			return rch.distance;
+		}
+		return 100;
+	}
+
+	void FixedUpdate ()
+	{
+		float distance = RaycastDownwardsFromMe();
+		float fractionalPosition = (MaxDistance - distance) / (MaxDistance - MinDistance);
+		if (fractionalPosition < 0) fractionalPosition = 0;
+		if (fractionalPosition > 1) fractionalPosition = 1;
+		float force = fractionalPosition * MaxForce;
+
+		rb.AddForceAtPosition(Vector3.up * force, transform.position);
 	}
 }

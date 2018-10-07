@@ -3,7 +3,7 @@
 */
 
 /*
-    Copyright (c) 2016 Kurt Dekker/PLBM Games All rights reserved.
+    Copyright (c) 2018 Kurt Dekker/PLBM Games All rights reserved.
 
     http://www.twitter.com/kurtdekker
     
@@ -38,37 +38,44 @@
 using UnityEngine;
 using System.Collections;
 
-public class SimpleHover : MonoBehaviour
+[RequireComponent( typeof( Rigidbody))]
+public class SimpleZRDrive : MonoBehaviour
 {
-	public float MinDistance = 2.0f;
-	public float MaxDistance = 4.0f;
-	public float MaxForce = 25.0f;
+	public float Power;
+	public float Twist;
+
+	void Reset()
+	{
+		Power = 25.0f;
+		Twist = 10.0f;
+	}
 
 	Rigidbody rb;
 
 	void Start()
 	{
-		rb = GetComponentInParent<Rigidbody>();
-	}
-
-	float RaycastDownwardsFromMe()
-	{
-		RaycastHit rch;
-		if (Physics.Raycast ( transform.position, -transform.up, out rch, MaxDistance))
-		{
-			return rch.distance;
-		}
-		return 100;
+		rb = GetComponent<Rigidbody>();
 	}
 
 	void FixedUpdate ()
 	{
-		float distance = RaycastDownwardsFromMe();
-		float fractionalPosition = (MaxDistance - distance) / (MaxDistance - MinDistance);
-		if (fractionalPosition < 0) fractionalPosition = 0;
-		if (fractionalPosition > 1) fractionalPosition = 1;
-		float force = fractionalPosition * MaxForce;
+		// turn first
+		float Rdrive = Input.GetAxis("Horizontal");
 
-		rb.AddForceAtPosition(Vector3.up * force, transform.position);
+		if (Mathf.Abs( Rdrive) > 0.1f)
+		{
+			rb.AddTorque( transform.up * Rdrive * Twist);
+		}
+		else
+		{
+			// damp out rotation
+			rb.AddTorque( -rb.angularVelocity * Twist);
+		}
+
+		// then drive
+		Vector3 Zdrive = transform.forward * Input.GetAxis( "Vertical") * Power;
+
+		rb.AddForce(Zdrive);
+
 	}
 }

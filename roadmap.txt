@@ -1,0 +1,9 @@
+10/7/2018
+
+Roadmap of future improvements for Hover:
+
+- visible line renderer "feelers" for the repeller beams
+
+- particle systems for:
+	- contact points with the ground (sparks)
+	- thrusters out of the hovercraft engines (front and back)

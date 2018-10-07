@@ -48,6 +48,9 @@ public class SimpleXZDrive : MonoBehaviour
 		Vector3 XZdrive = new Vector3( Input.GetAxis ( "Horizontal"),
 		                      0,
 		                      Input.GetAxis( "Vertical")) * Power;
+
+		XZdrive = transform.rotation * XZdrive;
+
 		gameObject.GetComponent<Rigidbody>().AddForce(XZdrive);
 	}
 }
