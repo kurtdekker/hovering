@@ -46,6 +46,39 @@ public class Mainmenu : MonoBehaviour
 //		StartHoverCraft();
 //	}
 
+	void Update()
+	{
+		if (Input.GetKeyDown( KeyCode.Alpha1))
+		{
+			StartSimpleHoverCube();
+		}
+
+		if (Input.GetKeyDown( KeyCode.Alpha2))
+		{
+			StartHoverCraft();
+		}
+
+		if (Input.GetKeyDown( KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+	}
+
+	public void GotoTwitter()
+	{
+		Application.OpenURL( "https://www.twitter.com/kurtdekker");
+	}
+
+	public void GotoBitbucket()
+	{
+		Application.OpenURL( "https://www.bitbucket.org/kurtdekker");
+	}
+
+	public void GotoGithub()
+	{
+		Application.OpenURL( "https://www.github.com/kurtdekker");
+	}
+
 	public void StartSimpleHoverCube()
 	{
 		GotoScene( "SimpleHoverCubeScene");
