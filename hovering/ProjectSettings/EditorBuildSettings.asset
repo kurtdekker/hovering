@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/HoverCraft/HoverCraftScene.unity
     guid: b999603a811754096a2fe8a77358c2a0
   - enabled: 1
-    path: Assets/Scenes/SimpleHover/SimpleHoverCubeScene.unity
+    path: Assets/Scenes/SimpleHoverCube/SimpleHoverCubeScene.unity
     guid: 12984197d1e4b46d1a2ce54b176e8fc7
   - enabled: 1
     path: Assets/Scenes/Level1/Level1.unity
