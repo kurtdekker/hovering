@@ -39,13 +39,6 @@ using UnityEngine;
 
 public class Mainmenu : MonoBehaviour
 {
-	// for quick testing
-//	IEnumerator Start()
-//	{
-//		yield return new WaitForSeconds( 1.0f);
-//		StartHoverCraft();
-//	}
-
 	void Update()
 	{
 		if (Input.GetKeyDown( KeyCode.Alpha1))
