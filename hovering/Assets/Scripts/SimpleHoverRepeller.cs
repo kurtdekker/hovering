@@ -46,9 +46,13 @@ public class SimpleHoverRepeller : MonoBehaviour
 
 	Rigidbody rb;
 
+	ContactTracker contactTracker;
+
 	void Start()
 	{
 		rb = GetComponentInParent<Rigidbody>();
+
+		contactTracker = ContactTracker.AttachOrFind( transform.root.gameObject);
 	}
 
 	float RaycastDownwardsFromMe()
@@ -56,14 +60,22 @@ public class SimpleHoverRepeller : MonoBehaviour
 		RaycastHit rch;
 		if (Physics.Raycast ( transform.position, -transform.up, out rch, MaxDistance))
 		{
+			// report in contact with ground
+			contactTracker.ReportContactState( this, true);
+
 			return rch.distance;
 		}
+
+		// report no contact
+		contactTracker.ReportContactState( this, false);
+
 		return 100;
 	}
 
 	void FixedUpdate ()
 	{
 		float distance = RaycastDownwardsFromMe();
+
 		float fractionalPosition = (MaxDistance - distance) / (MaxDistance - MinDistance);
 		if (fractionalPosition < 0) fractionalPosition = 0;
 		if (fractionalPosition > 1) fractionalPosition = 1;
