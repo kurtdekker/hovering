@@ -52,13 +52,26 @@ public class SimpleZRDrive : MonoBehaviour
 
 	Rigidbody rb;
 
+	ContactTracker contactTracker;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+
+		contactTracker = ContactTracker.AttachOrFind(gameObject);
 	}
+
+	// how long before the engine dies when you lose contact with all repellers?
+	const float ContactLingerInterval = 1.0f;
 
 	void FixedUpdate ()
 	{
+		// have you been out of contact with the ground a long time?
+		if (contactTracker.GetTimeSinceContact() >= ContactLingerInterval)
+		{
+			return;
+		}
+
 		// turn first
 		float Rdrive = Input.GetAxis("Horizontal");
 
