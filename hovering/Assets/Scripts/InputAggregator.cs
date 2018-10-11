@@ -1,9 +1,7 @@
 ﻿/*
     The following license supersedes all notices in the source code.
-*/
 
-/*
-    Copyright (c) 2018 Kurt Dekker/PLBM Games All rights reserved.
+	Copyright (c) 2018 Kurt Dekker/PLBM Games All rights reserved.
 
     http://www.twitter.com/kurtdekker
     
@@ -35,64 +33,36 @@
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-[RequireComponent( typeof( Rigidbody))]
-public class SimpleZRDrive : MonoBehaviour
+public class InputAggregator : MonoBehaviour
 {
-	public float Power;
-	public float Twist;
+	IInputProviderXY[] InputProviders;
 
-	void Reset()
+	void Awake()
 	{
-		Power = 25.0f;
-		Twist = 10.0f;
+		InputProviders = GetComponentsInChildren<IInputProviderXY>();
 	}
 
-	Rigidbody rb;
-
-	ContactTracker contactTracker;
-
-	InputAggregator input;
-
-	void Start()
+	public float GetHorizontal()
 	{
-		input = GetComponent<InputAggregator>();
-
-		rb = GetComponent<Rigidbody>();
-
-		contactTracker = ContactTracker.AttachOrFind(gameObject);
+		float output = 0;
+		foreach( var ip in InputProviders)
+		{
+			output += ip.GetHorizontal();
+		}
+		return output;
 	}
 
-	// how long before the engine dies when you lose contact with all repellers?
-	const float ContactLingerInterval = 1.0f;
-
-	void FixedUpdate ()
+	public float GetVertical()
 	{
-		// have you been out of contact with the ground a long time?
-		if (contactTracker.GetTimeSinceContact() >= ContactLingerInterval)
+		float output = 0;
+		foreach( var ip in InputProviders)
 		{
-			return;
+			output += ip.GetVertical();
 		}
-
-		// turn first
-		float Rdrive = input.GetHorizontal();
-
-		if (Mathf.Abs( Rdrive) > 0.1f)
-		{
-			rb.AddTorque( transform.up * Rdrive * Twist);
-		}
-		else
-		{
-			// damp out rotation
-			rb.AddTorque( -rb.angularVelocity * Twist);
-		}
-
-		// then drive
-		Vector3 Zdrive = transform.forward * input.GetVertical() * Power;
-
-		rb.AddForce(Zdrive);
-
+		return output;
 	}
 }

@@ -1,9 +1,7 @@
 ﻿/*
     The following license supersedes all notices in the source code.
-*/
 
-/*
-    Copyright (c) 2018 Kurt Dekker/PLBM Games All rights reserved.
+	Copyright (c) 2018 Kurt Dekker/PLBM Games All rights reserved.
 
     http://www.twitter.com/kurtdekker
     
@@ -35,64 +33,18 @@
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-[RequireComponent( typeof( Rigidbody))]
-public class SimpleZRDrive : MonoBehaviour
+public class InputViaTouches : MonoBehaviour, IInputProviderXY
 {
-	public float Power;
-	public float Twist;
-
-	void Reset()
+	public float GetHorizontal ()
 	{
-		Power = 25.0f;
-		Twist = 10.0f;
+		throw new System.NotImplementedException ();
 	}
-
-	Rigidbody rb;
-
-	ContactTracker contactTracker;
-
-	InputAggregator input;
-
-	void Start()
+	public float GetVertical ()
 	{
-		input = GetComponent<InputAggregator>();
-
-		rb = GetComponent<Rigidbody>();
-
-		contactTracker = ContactTracker.AttachOrFind(gameObject);
-	}
-
-	// how long before the engine dies when you lose contact with all repellers?
-	const float ContactLingerInterval = 1.0f;
-
-	void FixedUpdate ()
-	{
-		// have you been out of contact with the ground a long time?
-		if (contactTracker.GetTimeSinceContact() >= ContactLingerInterval)
-		{
-			return;
-		}
-
-		// turn first
-		float Rdrive = input.GetHorizontal();
-
-		if (Mathf.Abs( Rdrive) > 0.1f)
-		{
-			rb.AddTorque( transform.up * Rdrive * Twist);
-		}
-		else
-		{
-			// damp out rotation
-			rb.AddTorque( -rb.angularVelocity * Twist);
-		}
-
-		// then drive
-		Vector3 Zdrive = transform.forward * input.GetVertical() * Power;
-
-		rb.AddForce(Zdrive);
-
+		throw new System.NotImplementedException ();
 	}
 }

@@ -37,74 +37,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mainmenu : MonoBehaviour
+public class HoverCraftConfigure : MonoBehaviour
 {
-	void Update()
+	void Start()
 	{
-		if (Input.GetKeyDown( KeyCode.Alpha1))
-		{
-			StartSimpleHoverCube();
-		}
-
-		if (Input.GetKeyDown( KeyCode.Alpha2))
-		{
-			StartHoverCraft();
-		}
-
-		if (Input.GetKeyDown( KeyCode.Escape))
-		{
-			Application.Quit();
-		}
-	}
-
-	public void GotoTwitter()
-	{
-		Application.OpenURL( "https://www.twitter.com/kurtdekker");
-	}
-
-	public void GotoBitbucket()
-	{
-		Application.OpenURL( "https://www.bitbucket.org/kurtdekker");
-	}
-
-	public void GotoGithub()
-	{
-		Application.OpenURL( "https://www.github.com/kurtdekker");
-	}
-
-	public void StartSimpleHoverCube()
-	{
-		GotoScene( "SimpleHoverCubeScene");
-		GotoScene( "Level1", true, true);
-	}
-
-	public void StartHoverCraft()
-	{
-		GotoScene( "HoverCraftScene");
-		GotoScene( "Level1", true, true);
-	}
-
-	public void StartHoverRace()
-	{
-		GotoScene( "HoverRaceScene");
-		GotoScene( "Level1", true, true);
-	}
-
-	public static void GotoScene( string s, bool additive = false, bool select = false)
-	{
-		if (s == null)
-		{
-			s = UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name;
-		}
-		UnityEngine.SceneManagement.SceneManager.LoadScene (
-			s, additive ? UnityEngine.SceneManagement.LoadSceneMode.Additive : 0);
-
-		if (select)
-		{
-			CallAfterDelay.Create( 0, () => {
-				UnityEngine.SceneManagement.SceneManager.SetActiveScene(
-					UnityEngine.SceneManagement.SceneManager.GetSceneByName( s));
-			});
-		}
+		// TODO:
+		// - find the original hovercraft:
+		//		- turn original off (set inactive)
+		//
+		//		- replicate original
+		//		- add InputViaUnityInput component
+		//		- add InputViaTouches component
+		//		- add InputAggregator component
+		//		- set active
+		//
+		//		- destroy original
 	}
 }
