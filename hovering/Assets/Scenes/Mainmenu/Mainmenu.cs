@@ -51,6 +51,11 @@ public class Mainmenu : MonoBehaviour
 			StartHoverCraft();
 		}
 
+		if (Input.GetKeyDown( KeyCode.Alpha3))
+		{
+			StartHoverRace();
+		}
+
 		if (Input.GetKeyDown( KeyCode.Escape))
 		{
 			Application.Quit();

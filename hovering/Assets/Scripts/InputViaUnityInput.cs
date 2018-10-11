@@ -41,10 +41,10 @@ public class InputViaUnityInput : MonoBehaviour, IInputProviderXY
 {
 	public float GetHorizontal ()
 	{
-		throw new System.NotImplementedException ();
+		return Input.GetAxis( "Horizontal");
 	}
 	public float GetVertical ()
 	{
-		throw new System.NotImplementedException ();
+		return Input.GetAxis( "Vertical");
 	}
 }

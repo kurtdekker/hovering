@@ -78,19 +78,20 @@ public class SimpleCamera : MonoBehaviour
 		transform.LookAt( target);
 	}
 
-	void OnGUI()
-	{
-		float sz = Mathf.Min( Screen.width, Screen.height) * 0.15f;
-
-		float aspect = 1.5f;
-
-		Rect r = new Rect( Screen.width - sz * aspect, 0, sz * aspect, sz);
-
-		GUI.color = StayBehind ? Color.green : Color.white;
-
-		if (GUI.Button( r, "CAMERA\nBEHIND"))
-		{
-			StayBehind = !StayBehind;
-		}
-	}
+// turning this OFF so we can use two cameras for the race scene
+//	void OnGUI()
+//	{
+//		float sz = Mathf.Min( Screen.width, Screen.height) * 0.15f;
+//
+//		float aspect = 1.5f;
+//
+//		Rect r = new Rect( Screen.width - sz * aspect, 0, sz * aspect, sz);
+//
+//		GUI.color = StayBehind ? Color.green : Color.white;
+//
+//		if (GUI.Button( r, "CAMERA\nBEHIND"))
+//		{
+//			StayBehind = !StayBehind;
+//		}
+//	}
 }

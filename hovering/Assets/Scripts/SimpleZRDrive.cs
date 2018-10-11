@@ -58,7 +58,7 @@ public class SimpleZRDrive : MonoBehaviour
 
 	void Start()
 	{
-		input = GetComponent<InputAggregator>();
+		input = gameObject.AddComponent<InputAggregator>();
 
 		rb = GetComponent<Rigidbody>();
 
