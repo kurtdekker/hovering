@@ -43,4 +43,8 @@ public static class MR
 	{
 		return new Rect( Screen.width * x, Screen.height * y, Screen.width * w, Screen.height * h);
 	}
+	public static Rect SR( Rect r)
+	{
+		return SR( r.x, r.y, r.width, r.height);
+	}
 }
