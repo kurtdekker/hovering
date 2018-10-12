@@ -39,11 +39,27 @@ using UnityEngine;
 
 public class Escape : MonoBehaviour
 {
-	void Update ()
+	void DoEscape()
 	{
+		Mainmenu.GotoScene( "Mainmenu");
+	}
+
+	void Update()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			Rect r = MR.SR( 0.00f, 0.00f, 0.30f, 0.20f);
+			Vector3 pos = Input.mousePosition;
+			pos.y = Screen.height - pos.y;
+			if (r.Contains( pos))
+			{
+				DoEscape();
+			}
+		}
+
 		if (Input.GetKeyDown( KeyCode.Escape))
 		{
-			Mainmenu.GotoScene( "Mainmenu");
+			DoEscape();
 		}	
 	}
 }
