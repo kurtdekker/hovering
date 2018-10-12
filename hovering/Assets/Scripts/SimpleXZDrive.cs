@@ -43,11 +43,18 @@ public class SimpleXZDrive : MonoBehaviour
 {
 	public float Power = 10.0f;
 
+	InputAggregator input;
+
+	void Start()
+	{
+		input = gameObject.AddComponent<InputAggregator>();
+	}
+
 	void FixedUpdate ()
 	{
-		Vector3 XZdrive = new Vector3( Input.GetAxis ( "Horizontal"),
-		                      0,
-		                      Input.GetAxis( "Vertical")) * Power;
+		Vector3 XZdrive = new Vector3( input.GetHorizontal(), 0, input.GetVertical());
+
+		XZdrive *= Power;
 
 		XZdrive = transform.rotation * XZdrive;
 
