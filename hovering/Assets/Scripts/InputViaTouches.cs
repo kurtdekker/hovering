@@ -39,12 +39,29 @@ using UnityEngine;
 
 public class InputViaTouches : MonoBehaviour, IInputProviderXY
 {
+	VAButton vab;
+
+	public Rect TouchArea;
+	void Reset()
+	{
+		TouchArea = new Rect( 0, 0, 1, 1);
+	}
+
+	void Awake()
+	{
+		vab = gameObject.AddComponent<VAButton>();
+		vab.r_downable = MR.SR( TouchArea);
+		vab.doClamp = true;
+		vab.doNormalize = false;
+		vab.label = "";
+	}
+
 	public float GetHorizontal ()
 	{
-		throw new System.NotImplementedException ();
+		return vab.outputRaw.x;
 	}
 	public float GetVertical ()
 	{
-		throw new System.NotImplementedException ();
+		return vab.outputRaw.y;
 	}
 }

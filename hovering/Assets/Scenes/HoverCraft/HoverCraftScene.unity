@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 727958443}
   - component: {fileID: 727958442}
   - component: {fileID: 727958444}
+  - component: {fileID: 727958445}
   m_Layer: 0
   m_Name: SimpleHoverCraft
   m_TagString: Untagged
@@ -484,6 +485,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93326c706bf6c44eb948f368fd8f4bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &727958445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 727958440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a345601a81f14ee9bc71d730d9aff99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TouchArea:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &729341732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2017344215}
   - component: {fileID: 2017344216}
+  - component: {fileID: 2017344217}
   m_Layer: 0
   m_Name: 0scripts
   m_TagString: Untagged
@@ -1200,6 +1219,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b767e0530ade64ed1aebf89be88fff3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2017344217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017344214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53492263e3e5c4947b18e69b63128219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2136880263
