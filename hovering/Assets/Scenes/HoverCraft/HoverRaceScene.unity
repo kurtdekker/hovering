@@ -1211,6 +1211,7 @@ GameObject:
   - component: {fileID: 940109901}
   - component: {fileID: 940109900}
   - component: {fileID: 940109899}
+  - component: {fileID: 940109903}
   m_Layer: 0
   m_Name: SimpleHoverCraft1
   m_TagString: Untagged
@@ -1280,6 +1281,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &940109903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940109898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a345601a81f14ee9bc71d730d9aff99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TouchArea:
+    serializedVersion: 2
+    x: 0
+    y: 0.2
+    width: 0.5
+    height: 0.8
 --- !u!1 &1097119865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,6 +1388,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1134667498}
+  - component: {fileID: 1134667499}
   - component: {fileID: 1134667500}
   m_Layer: 0
   m_Name: 0scripts
@@ -1391,6 +1410,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1134667499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1134667497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b767e0530ade64ed1aebf89be88fff3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1134667500
 MonoBehaviour:
   m_ObjectHideFlags: 0
