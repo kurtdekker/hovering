@@ -499,9 +499,9 @@ MonoBehaviour:
   TouchArea:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.2
     width: 1
-    height: 1
+    height: 0.8
 --- !u!1 &729341732
 GameObject:
   m_ObjectHideFlags: 0
