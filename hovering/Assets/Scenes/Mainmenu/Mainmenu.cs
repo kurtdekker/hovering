@@ -91,8 +91,7 @@ public class Mainmenu : MonoBehaviour
 
 	public void StartHoverRace()
 	{
-		GotoScene( "HoverRaceScene");
-		GotoScene( "Level1", true, true);
+		HoverRaceConfigure.LoadSceneStack( "Level1");
 	}
 
 	public static void GotoScene( string s, bool additive = false, bool select = false)

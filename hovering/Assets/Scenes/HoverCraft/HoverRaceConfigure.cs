@@ -39,23 +39,25 @@ using UnityEngine;
 
 public class HoverRaceConfigure : MonoBehaviour
 {
-	void Start()
+	static	string	LastTrack;
+
+	public	static	void	LoadSceneStack( string levelScene)
 	{
-		// - find the original hovercraft:
-		//		- turn original off (set inactive)
-		//
-		//		- replicate original to Racer 1
-		//		- position to -5 left of original
-		//		- add InputViaUnityInput component
-		//		- add InputAggregator component
-		//
-		//		- replicate original to Racer 2
-		//		- position to +5 left of original
-		//		- add InputViaTouches component
-		//		- add InputAggregator component
-		//
-		//		- set copies both active
-		//
-		//		- destroy original
+		LastTrack = levelScene;
+
+		Mainmenu.GotoScene( "HoverRaceScene");
+		Mainmenu.GotoScene( levelScene, true, true);
+	}
+
+	public	void	ResetRace()
+	{
+		LoadSceneStack( LastTrack);
+	}
+
+	void	OnGUI()
+	{
+		Rect r = MR.SR( 0.498f, 0.00f, 0.004f, 1.00f);
+
+		GUI.DrawTexture( r, LAZY.t2d_white32x32);
 	}
 }
