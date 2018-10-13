@@ -42,9 +42,14 @@ public class InputViaTouches : MonoBehaviour, IInputProviderXY
 	VAButton vab;
 
 	public Rect TouchArea;
+
+	public float ForwardBias;
+
 	void Reset()
 	{
 		TouchArea = new Rect( 0, 0, 1, 1);
+
+		ForwardBias = 0.25f;
 	}
 
 	void Awake()
@@ -62,6 +67,14 @@ public class InputViaTouches : MonoBehaviour, IInputProviderXY
 	}
 	public float GetVertical ()
 	{
-		return vab.outputRaw.y;
+		float vertical = vab.outputRaw.y;
+
+		if (vab.fingerDown && vertical >= -0.1f)
+		{
+			vertical += ForwardBias;
+			if (vertical > 1.0f) vertical = 1.0f;
+		}
+
+		return vertical;
 	}
 }
