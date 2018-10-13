@@ -53,14 +53,25 @@ public class SimpleCamera : MonoBehaviour
 		Snappiness = 3.0f;
 	}
 
-	Vector3 offset;
+	Vector3 offset
+	{
+		get
+		{
+			return new Vector3( 0, Above, -Behind);
+		}
+	}
 
 	Vector3 DesiredPosition;
 
-	void FixedUpdate ()
+	IEnumerator Start()
 	{
-		Vector3 offset = new Vector3( 0, Above, -Behind);
+		yield return null;		// gives teleport to spawn a chance to act
 
+		ManualUpdate( 1.0f);
+	}
+
+	void ManualUpdate( float SnapTweenAmount)
+	{
 		Vector3 UsableOffset = offset;
 
 		if (StayBehind)
@@ -73,9 +84,14 @@ public class SimpleCamera : MonoBehaviour
 		DesiredPosition = target.position + UsableOffset;
 
 		transform.position = Vector3.Lerp(
-			transform.position, DesiredPosition, Snappiness * Time.deltaTime);
+			transform.position, DesiredPosition, SnapTweenAmount);
 
 		transform.LookAt( target);
+	}
+
+	void FixedUpdate()
+	{
+		ManualUpdate( Snappiness * Time.deltaTime);
 	}
 
 // turning this OFF so we can use two cameras for the race scene
