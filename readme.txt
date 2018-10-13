@@ -2,7 +2,7 @@
 
 Some hovering stuff, a common question on Unity3D.
 
-Play this game now at http://www.plbm.com/hovering.index.html
+Play this game now at http://www.plbm.com/hovering/index.html
 
 Follow me on twitter at http://www.twitter.com/kurtdekker
 
