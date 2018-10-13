@@ -1544,7 +1544,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'HoverCraft Race by Kurt Dekker
 
-    www.twitter.com/kurtdekker'
+    www.twitter.com/kurtdekker
+
+    (tap here to escape)'
 --- !u!222 &1235696465
 CanvasRenderer:
   m_ObjectHideFlags: 0

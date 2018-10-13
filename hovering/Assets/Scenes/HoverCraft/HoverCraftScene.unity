@@ -920,7 +920,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'HoverCraft by Kurt Dekker
 
-    www.twitter.com/kurtdekker'
+    www.twitter.com/kurtdekker
+
+    (tap here to escape)'
 --- !u!222 &1351525840
 CanvasRenderer:
   m_ObjectHideFlags: 0
