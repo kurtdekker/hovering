@@ -45,6 +45,9 @@ public class SimpleCamera : MonoBehaviour
 
 	public	bool		StayBehind;
 
+	public	float		Above = 10;
+	public	float		Behind = 15;
+
 	void Reset()
 	{
 		Snappiness = 3.0f;
@@ -54,13 +57,10 @@ public class SimpleCamera : MonoBehaviour
 
 	Vector3 DesiredPosition;
 
-	void Start ()
-	{
-		offset = transform.position - target.position;
-	}
-
 	void FixedUpdate ()
 	{
+		Vector3 offset = new Vector3( 0, Above, -Behind);
+
 		Vector3 UsableOffset = offset;
 
 		if (StayBehind)

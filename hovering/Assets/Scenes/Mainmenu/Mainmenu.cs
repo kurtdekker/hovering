@@ -91,6 +91,6 @@ public class Mainmenu : MonoBehaviour
 
 	public void StartHoverRace()
 	{
-		HoverRaceConfigure.LoadSceneStack( "Level1");
+		HoverRaceConfigure.LoadSceneStack( "Level2");
 	}
 }

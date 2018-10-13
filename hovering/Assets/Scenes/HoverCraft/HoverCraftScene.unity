@@ -404,6 +404,8 @@ MonoBehaviour:
   target: {fileID: 727958441}
   Snappiness: 3
   StayBehind: 1
+  Above: 10
+  Behind: 15
 --- !u!1 &727958440
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +418,7 @@ GameObject:
   - component: {fileID: 727958442}
   - component: {fileID: 727958444}
   - component: {fileID: 727958445}
+  - component: {fileID: 727958446}
   m_Layer: 0
   m_Name: SimpleHoverCraft
   m_TagString: Untagged
@@ -502,6 +505,18 @@ MonoBehaviour:
     y: 0.2
     width: 1
     height: 0.8
+--- !u!114 &727958446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 727958440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a46f945320444c8926f794efeacff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameObjectNameToSearchFor: Spawnpoint1
 --- !u!1 &729341732
 GameObject:
   m_ObjectHideFlags: 0

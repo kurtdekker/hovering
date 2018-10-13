@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 94324395}
   - component: {fileID: 94324394}
   - component: {fileID: 94324393}
+  - component: {fileID: 94324397}
   m_Layer: 0
   m_Name: SimpleHoverCraft2
   m_TagString: Untagged
@@ -321,6 +322,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &94324397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94324392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a46f945320444c8926f794efeacff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameObjectNameToSearchFor: Spawnpoint2
 --- !u!1 &110643885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1225,7 @@ GameObject:
   - component: {fileID: 940109900}
   - component: {fileID: 940109899}
   - component: {fileID: 940109903}
+  - component: {fileID: 940109904}
   m_Layer: 0
   m_Name: SimpleHoverCraft1
   m_TagString: Untagged
@@ -1298,6 +1312,18 @@ MonoBehaviour:
     y: 0.2
     width: 0.5
     height: 0.8
+--- !u!114 &940109904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940109898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a46f945320444c8926f794efeacff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameObjectNameToSearchFor: Spawnpoint1
 --- !u!1 &1097119865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,6 +2061,8 @@ MonoBehaviour:
   target: {fileID: 940109902}
   Snappiness: 3
   StayBehind: 1
+  Above: 10
+  Behind: 15
 --- !u!1 &1820038360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,6 +2225,8 @@ MonoBehaviour:
   target: {fileID: 94324396}
   Snappiness: 3
   StayBehind: 1
+  Above: 10
+  Behind: 15
 --- !u!1 &2088835268
 GameObject:
   m_ObjectHideFlags: 0

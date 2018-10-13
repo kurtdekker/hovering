@@ -39,18 +39,18 @@ using UnityEngine;
 
 public class HoverCraftConfigure : MonoBehaviour
 {
-	void Start()
+	IEnumerator Start()
 	{
-		// TODO:
-		// - find the original hovercraft:
-		//		- turn original off (set inactive)
-		//
-		//		- replicate original
-		//		- add InputViaUnityInput component
-		//		- add InputViaTouches component
-		//		- add InputAggregator component
-		//		- set active
-		//
-		//		- destroy original
+		while(true)
+		{
+			var spawnPoint = GameObject.Find( "Spawnpoint");
+
+			if (spawnPoint)
+			{
+				Destroy(this);
+			}
+
+			yield return null;
+		}
 	}
 }
