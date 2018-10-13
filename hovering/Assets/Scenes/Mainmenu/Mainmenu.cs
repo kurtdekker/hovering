@@ -79,36 +79,18 @@ public class Mainmenu : MonoBehaviour
 
 	public void StartSimpleHoverCube()
 	{
-		GotoScene( "SimpleHoverCubeScene");
-		GotoScene( "Level1", true, true);
+		SceneHelper.GotoScene( "SimpleHoverCubeScene");
+		SceneHelper.GotoScene( "Level1", true, true);
 	}
 
 	public void StartHoverCraft()
 	{
-		GotoScene( "HoverCraftScene");
-		GotoScene( "Level1", true, true);
+		SceneHelper.GotoScene( "HoverCraftScene");
+		SceneHelper.GotoScene( "Level1", true, true);
 	}
 
 	public void StartHoverRace()
 	{
 		HoverRaceConfigure.LoadSceneStack( "Level1");
-	}
-
-	public static void GotoScene( string s, bool additive = false, bool select = false)
-	{
-		if (s == null)
-		{
-			s = UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name;
-		}
-		UnityEngine.SceneManagement.SceneManager.LoadScene (
-			s, additive ? UnityEngine.SceneManagement.LoadSceneMode.Additive : 0);
-
-		if (select)
-		{
-			CallAfterDelay.Create( 0, () => {
-				UnityEngine.SceneManagement.SceneManager.SetActiveScene(
-					UnityEngine.SceneManagement.SceneManager.GetSceneByName( s));
-			});
-		}
 	}
 }

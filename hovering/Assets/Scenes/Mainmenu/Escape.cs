@@ -41,7 +41,7 @@ public class Escape : MonoBehaviour
 {
 	void DoEscape()
 	{
-		Mainmenu.GotoScene( "Mainmenu");
+		SceneHelper.GotoScene( "Mainmenu");
 	}
 
 	void Update()

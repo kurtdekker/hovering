@@ -45,8 +45,8 @@ public class HoverRaceConfigure : MonoBehaviour
 	{
 		LastTrack = levelScene;
 
-		Mainmenu.GotoScene( "HoverRaceScene");
-		Mainmenu.GotoScene( levelScene, true, true);
+		SceneHelper.GotoScene( "HoverRaceScene");
+		SceneHelper.GotoScene( levelScene, true, true);
 	}
 
 	public	void	ResetRace()
