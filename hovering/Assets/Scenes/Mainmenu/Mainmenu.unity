@@ -727,8 +727,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 0, y: -21}
+  m_AnchoredPosition: {x: 0, y: -0.25002}
+  m_SizeDelta: {x: 0, y: -0.49999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044068116
 MonoBehaviour:
@@ -762,7 +762,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3. Hover Race
+  m_Text: 3. Hover Race Track
 --- !u!222 &1044068117
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1651,6 +1651,7 @@ GameObject:
   - component: {fileID: 1925147604}
   - component: {fileID: 1925147606}
   - component: {fileID: 1925147605}
+  - component: {fileID: 1925147607}
   m_Layer: 5
   m_Name: TextRequiredBlender3D
   m_TagString: Untagged
@@ -1673,8 +1674,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -13}
-  m_SizeDelta: {x: 0, y: -26}
+  m_AnchoredPosition: {x: 0.000061035156, y: -21}
+  m_SizeDelta: {x: 0, y: -42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925147605
 MonoBehaviour:
@@ -1706,15 +1707,26 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: (requires Blender3D installed!)
+  m_Text: (requires installing Blender3D)
 --- !u!222 &1925147606
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1925147603}
+--- !u!114 &1925147607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1925147603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51dbd9016c4e449ceb8e05eee92b377c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2007458907
 GameObject:
   m_ObjectHideFlags: 0
