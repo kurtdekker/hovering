@@ -271,6 +271,7 @@ MonoBehaviour:
     y: 0.2
     width: 0.5
     height: 0.8
+  ForwardBias: 0.25
 --- !u!114 &94324394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d5f313a54144cc59a9ba982577b7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Power: 25
+  Power: 50
   Twist: 10
 --- !u!54 &94324395
 Rigidbody:
@@ -787,7 +788,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Touchscreen or Mouse
+  m_Text: Touch / Mouse only
 --- !u!222 &294818010
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1125,7 +1126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8, y: 0.8883327}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &938472653
@@ -1255,7 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d5f313a54144cc59a9ba982577b7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Power: 25
+  Power: 50
   Twist: 10
 --- !u!54 &940109901
 Rigidbody:
@@ -1312,6 +1313,7 @@ MonoBehaviour:
     y: 0.2
     width: 0.5
     height: 0.8
+  ForwardBias: 0.25
 --- !u!114 &940109904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1821,7 +1823,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Keyboard Arrows
+  m_Text: Keyboard or Touch
 --- !u!222 &1383274972
 CanvasRenderer:
   m_ObjectHideFlags: 0
