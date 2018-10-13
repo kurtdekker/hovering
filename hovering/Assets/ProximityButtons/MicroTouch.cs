@@ -51,6 +51,7 @@ public class MicroTouch
 		case RuntimePlatform.WindowsPlayer:
 		case RuntimePlatform.OSXEditor:
 		case RuntimePlatform.OSXPlayer:
+		case RuntimePlatform.WebGLPlayer :
 			if (Input.GetMouseButton(0) || Input.GetMouseButtonUp (0))
 			{
 				includeMouse = true;
